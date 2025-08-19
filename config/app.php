@@ -123,4 +123,12 @@ return [
         'store' => env('APP_MAINTENANCE_STORE', 'database'),
     ],
 
+    'providers' => \Illuminate\Support\ServiceProvider::defaultProviders()->merge([
+        // Package Service Providers...
+    ])->replace([
+        \Illuminate\Queue\QueueServiceProvider::class => \Gecche\Multidomain\Queue\QueueServiceProvider::class,
+    ])->merge([
+        // Added Service Providers (Do not remove this line)...
+    ])->toArray(),
+
 ];
